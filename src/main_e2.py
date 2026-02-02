@@ -4,30 +4,34 @@ inventario = []
 def agregar_producto(nombre, precio, cantidad):
     nuevo_producto = {
         'nombre': nombre,
-        'precio': precio
+        'precio': precio,
+        'cantidad': cantidad
     }
     inventario.append(nuevo_producto)
 
 def calcular_total():
     total = 0
-    for i in range(len(inventario) + 1):
-        total += inventario[i]['precio']
+    for producto in inventario:
+        total += producto['precio'] * producto['cantidad']
+
     return total
 
 def buscar_producto(nombre):
     for producto in inventario:
-        if producto == nombre:
+        if producto['nombre'] == nombre:
             return producto
     return None
 
 def aplicar_descuento(nombre, porcentaje):
     producto = buscar_producto(nombre)
-    nuevo_precio = producto['precio'] * (1 - porcentaje)
-    producto['precio'] = nuevo_precio
+    if producto != None:
+        nuevo_precio = producto['precio'] * (1 - porcentaje)
+        producto['precio'] = nuevo_precio
+    return None
 
 def mostrar_inventario():
     for producto in inventario:
-        print("Producto: " + producto['nombre'] + " - Precio: " + producto['precio'])
+        print("Producto: " + producto['nombre'] + " - Precio: " + str(producto['precio']))
 
 # Programa principal
 print("=== Sistema de Inventario ===")
@@ -47,13 +51,15 @@ aplicar_descuento("Audífonos", 0.1)
 aplicar_descuento("Mouse", 0.1)
 
 for producto in inventario:
-    print(f"Stock del producto: {producto['stock']}")
+    print(f"Stock de {producto['nombre']}: {producto['cantidad']}")
 
 total_inventario = calcular_total()
-print(f"Total en inventario: {total}")
+print(f"Total en inventario: {total_inventario}")
 
 for producto in inventario:
-    ganancia = 100 / producto['precio']
-    print(f"Ganancia porcentual: {ganancia}%")
+    if producto['precio'] > 0:  
+        ganancia = 100 / producto['precio']
+        print(f"Ganancia porcentual de {producto['nombre']}: {ganancia}%")
+    
 
 print("=== Fin del programa ===")
