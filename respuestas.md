@@ -7,13 +7,13 @@ Ejecuta el programa y cubre la siguiente tabla con los valores de cada variable 
 
 | Linea    | a   | b   | c   |    
 |:--------:|:---:|:---:|:---:|
-| Linea 4  |     |     |     |
-| Linea 5  |     |     |     |    
-| Linea 7  |     |     |     |  
-| Linea 8  |     |     |     |  
-| Linea 10 |     |     |     |  
-| Linea 11 |     |     |     |  
-| Linea 13 |     |     |     |  
+| Linea 4  |  -  |  -  |  -  |
+| Linea 5  |  0  |  -  |  -  |    
+| Linea 7  |  0  |  0  |  -  |  
+| Linea 8  | '4' |  0  |  -  |  
+| Linea 10 | '4' |  3' |  -  |  
+| Linea 11 |  4  | '3' |  -  |  
+| Linea 13 |  4  |  3  |  -  |  
 
 
 #### Ejercicio 2
